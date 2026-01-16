@@ -27202,7 +27202,7 @@ var _secondPicJpgDefault = parcelHelpers.interopDefault(_secondPicJpg);
 const imageAltText = "a scenic view of a street at night during the festive season";
 /**
  * Sort description that expands on your title on the Home component.
- */ const description = "I'm a Embedded programming student studying at Barnett Technical University. I enjoy learning about microcontrollers and developing embedded systems, making devices smarter and more efficient.";
+ */ const description = "I'm a Embedded programming student studying at Ho Chi Minh University of Technology. I enjoy learning about microcontrollers and developing embedded systems, making devices smarter and more efficient.";
 /**
  * List of some of skills or technologies you work on, are learning,
  * passionate about, or enjoy,
@@ -27221,7 +27221,7 @@ const imageAltText = "a scenic view of a street at night during the festive seas
  * Use this to give more information about what you are passionate about,
  * how you best work, or even a quote. This will help someone learn more
  * about you on a professional level.
- */ const detailOrQuote = "I am passionate about solving problems in new creative ways to drive innovation. By leveraging my UI/UX experience I continually look for new and better ways to make tech accessible by all.";
+ */ const detailOrQuote = "I am passionate about creating innovative embedded systems that enhance everyday life. I thrive in collaborative environments where I can contribute my skills and learn from others. As Albert Einstein once said, 'Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces the entire world, stimulating progress, giving birth to evolution.'";
 const About = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
         className: "padding",
