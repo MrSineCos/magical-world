@@ -27100,8 +27100,8 @@ var _home = require("./Components/Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
 var _portfolio = require("./Components/Portfolio");
 var _portfolioDefault = parcelHelpers.interopDefault(_portfolio);
-var _education = require("./Components/Education");
-var _educationDefault = parcelHelpers.interopDefault(_education);
+var _sangTao = require("./Components/SangTao");
+var _sangTaoDefault = parcelHelpers.interopDefault(_sangTao);
 var _stylesCss = require("./styles.css");
 /**
  * This object represents your information. The project is set so that you
@@ -27143,23 +27143,24 @@ const App = ()=>{
                 lineNumber: 44,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _educationDefault.default), {}, void 0, false, {
-                fileName: "src/App.jsx",
-                lineNumber: 45,
-                columnNumber: 7
-            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _portfolioDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
                 lineNumber: 46,
                 columnNumber: 7
             }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sangTaoDefault.default), {}, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 47,
+                columnNumber: 7
+            }, undefined),
+            " ",
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerDefault.default), {
                 ...siteProps,
                 primaryColor: primaryColor,
                 secondaryColor: secondaryColor
             }, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 47,
+                lineNumber: 48,
                 columnNumber: 7
             }, undefined)
         ]
@@ -27179,7 +27180,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Components/About":"kouZu","./Components/Footer":"7GWgX","./Components/Header":"9Dt2F","./Components/Home":"jIEVO","./Components/Portfolio":"lCaEt","./styles.css":"lW6qc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Components/Education":"6QZcy"}],"kouZu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Components/About":"kouZu","./Components/Footer":"7GWgX","./Components/Header":"9Dt2F","./Components/Home":"jIEVO","./Components/Portfolio":"lCaEt","./styles.css":"lW6qc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Components/SangTao":"3hnAC"}],"kouZu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$17a8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27245,18 +27246,22 @@ const About = ()=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
-                    backgroundColor: "white",
+                    background: "rgba(255,255,255,0.7)",
+                    backdropFilter: "blur(8px)",
+                    WebkitBackdropFilter: "blur(8px)",
                     width: "50%",
                     padding: "4rem",
                     margin: "3rem auto",
-                    textAlign: "center"
+                    textAlign: "center",
+                    borderRadius: "18px",
+                    boxShadow: "0 4px 24px 0 rgba(0,0,0,0.07)"
                 },
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         children: "About Myself"
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 66,
+                        lineNumber: 70,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27264,12 +27269,12 @@ const About = ()=>{
                         children: description
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 67,
+                        lineNumber: 71,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 68,
+                        lineNumber: 72,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -27284,17 +27289,17 @@ const About = ()=>{
                                 children: skill
                             }, skill, false, {
                                 fileName: "src/Components/About.jsx",
-                                lineNumber: 79,
+                                lineNumber: 83,
                                 columnNumber: 13
                             }, undefined))
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 69,
+                        lineNumber: 73,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 82,
+                        lineNumber: 86,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27304,7 +27309,7 @@ const About = ()=>{
                         children: detailOrQuote
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 83,
+                        lineNumber: 87,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -28558,59 +28563,109 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
  * user scrolls so that they can constantly reach any part of your page.
  */ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$(), _s1 = $RefreshSig$();
+const navLinks = [
+    {
+        href: "#home",
+        label: "Home"
+    },
+    {
+        href: "#about",
+        label: "About"
+    },
+    {
+        href: "#education",
+        label: "Education"
+    },
+    {
+        href: "#portfolio",
+        label: "Portfolio"
+    },
+    {
+        href: "#footer",
+        label: "Contact"
+    },
+    {
+        href: "#sangtao",
+        label: "S\xe1ng tạo"
+    }
+];
+const headerStyle = {
+    position: "fixed",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "2rem",
+    background: "rgba(255,255,255,0.85)",
+    padding: "1rem",
+    top: 0,
+    width: "100%",
+    zIndex: 10,
+    boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+    backdropFilter: "blur(6px)"
+};
+const mobileHeaderStyle = {
+    ...headerStyle,
+    flexDirection: "column",
+    gap: "0.5rem",
+    padding: "0.75rem 0.5rem",
+    fontSize: "1.1rem"
+};
+const linkStyle = {
+    color: "#222",
+    textDecoration: "none",
+    fontWeight: 600,
+    padding: "0.25rem 0.75rem",
+    borderRadius: "6px",
+    transition: "background 0.2s, color 0.2s"
+};
+const linkHoverStyle = {
+    background: "#e6f0fa",
+    color: "#4e567e"
+};
+function useIsMobile() {
+    _s();
+    const [isMobile, setIsMobile] = (0, _reactDefault.default).useState(false);
+    (0, _reactDefault.default).useEffect(()=>{
+        const check = ()=>setIsMobile(window.innerWidth < 700);
+        check();
+        window.addEventListener("resize", check);
+        return ()=>window.removeEventListener("resize", check);
+    }, []);
+    return isMobile;
+}
+_s(useIsMobile, "0VTTNJATKABQPGLm9RVT0tKGUgU=");
 const Header = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        style: {
-            position: "fixed",
-            display: "flex",
-            justifyContent: "center",
-            gap: "2rem",
-            background: "rgba(255,255,255,0.75)",
-            padding: "1rem",
-            top: 0,
-            width: "100%",
-            zIndex: 10
-        },
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                href: "#home",
-                children: "Home"
-            }, void 0, false, {
+    _s1();
+    const isMobile = useIsMobile();
+    const [hovered, setHovered] = (0, _reactDefault.default).useState(null);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+        style: isMobile ? mobileHeaderStyle : headerStyle,
+        children: navLinks.map((link, idx)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                href: link.href,
+                style: hovered === idx ? {
+                    ...linkStyle,
+                    ...linkHoverStyle
+                } : linkStyle,
+                onMouseEnter: ()=>setHovered(idx),
+                onMouseLeave: ()=>setHovered(null),
+                children: link.label
+            }, link.href, false, {
                 fileName: "src/Components/Header.jsx",
-                lineNumber: 24,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                href: "#about",
-                children: "About"
-            }, void 0, false, {
-                fileName: "src/Components/Header.jsx",
-                lineNumber: 25,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                href: "#portfolio",
-                children: "Portfolio"
-            }, void 0, false, {
-                fileName: "src/Components/Header.jsx",
-                lineNumber: 26,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                href: "#footer",
-                children: "Contact"
-            }, void 0, false, {
-                fileName: "src/Components/Header.jsx",
-                lineNumber: 27,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
+                lineNumber: 74,
+                columnNumber: 9
+            }, undefined))
+    }, void 0, false, {
         fileName: "src/Components/Header.jsx",
-        lineNumber: 11,
+        lineNumber: 72,
         columnNumber: 5
     }, undefined);
 };
+_s1(Header, "eK7DQPe3ekNkj8zU4eysBS+nbRY=", false, function() {
+    return [
+        useIsMobile
+    ];
+});
 _c = Header;
 exports.default = Header;
 var _c;
@@ -28642,6 +28697,7 @@ var _downArrowSvg = require("../images/down-arrow.svg");
 var _downArrowSvgDefault = parcelHelpers.interopDefault(_downArrowSvg);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _s = $RefreshSig$();
 /**
  * Home background image
  *
@@ -28652,21 +28708,129 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
  *
  * Need an image? Check out https://unsplash.com to download a photo you
  * freely use on your site.
- */ var _firstPicJpg = require("../images/first-pic.jpg");
-var _firstPicJpgDefault = parcelHelpers.interopDefault(_firstPicJpg);
-const imageAltText = "a scenic view of mountains during sunset";
+ */ // Danh sách các ảnh nền và alt text
+const images = [
+    {
+        src: require("../images/first-pic.jpg"),
+        alt: "a scenic view of mountains during sunset"
+    },
+    {
+        src: require("../images/fourth-pic.jpg"),
+        alt: "a scenic view of a harbor and town at night"
+    }, 
+];
 const Home = ({ name , title  })=>{
+    _s();
+    const [idx, setIdx] = (0, _reactDefault.default).useState(0);
+    const [fade, setFade] = (0, _reactDefault.default).useState(true);
+    // Tự động chuyển ảnh sau mỗi 5 giây
+    (0, _reactDefault.default).useEffect(()=>{
+        const timer = setTimeout(()=>{
+            setFade(false);
+            setTimeout(()=>{
+                setIdx((prev)=>(prev + 1) % images.length);
+                setFade(true);
+            }, 400); // thời gian fade out
+        }, 5000);
+        return ()=>clearTimeout(timer);
+    }, [
+        idx
+    ]);
+    // Chuyển ảnh thủ công
+    const nextImage = ()=>{
+        setFade(false);
+        setTimeout(()=>{
+            setIdx((prev)=>(prev + 1) % images.length);
+            setFade(true);
+        }, 400);
+    };
+    const prevImage = ()=>{
+        setFade(false);
+        setTimeout(()=>{
+            setIdx((prev)=>(prev - 1 + images.length) % images.length);
+            setFade(true);
+        }, 400);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
         id: "home",
         className: "min-height",
+        style: {
+            position: "relative",
+            overflow: "hidden"
+        },
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                className: "background",
-                src: (0, _firstPicJpgDefault.default),
-                alt: ""
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    zIndex: -1,
+                    overflow: "hidden"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    className: "background",
+                    src: images[idx].src,
+                    alt: images[idx].alt,
+                    style: {
+                        transition: "opacity 0.4s cubic-bezier(.4,0,.2,1)",
+                        opacity: fade ? 1 : 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center center",
+                        display: "block",
+                        background: "#eaeaea"
+                    }
+                }, void 0, false, {
+                    fileName: "src/Components/Home.jsx",
+                    lineNumber: 75,
+                    columnNumber: 9
+                }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 30,
+                lineNumber: 64,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: prevImage,
+                style: {
+                    position: "absolute",
+                    left: 10,
+                    top: "50%",
+                    zIndex: 2,
+                    background: "rgba(255,255,255,0.7)",
+                    border: "none",
+                    borderRadius: "50%",
+                    width: 36,
+                    height: 36,
+                    cursor: "pointer"
+                },
+                children: "<"
+            }, void 0, false, {
+                fileName: "src/Components/Home.jsx",
+                lineNumber: 92,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: nextImage,
+                style: {
+                    position: "absolute",
+                    right: 10,
+                    top: "50%",
+                    zIndex: 2,
+                    background: "rgba(255,255,255,0.7)",
+                    border: "none",
+                    borderRadius: "50%",
+                    width: 36,
+                    height: 36,
+                    cursor: "pointer"
+                },
+                children: ">"
+            }, void 0, false, {
+                fileName: "src/Components/Home.jsx",
+                lineNumber: 93,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28681,20 +28845,20 @@ const Home = ({ name , title  })=>{
                         children: name
                     }, void 0, false, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 32,
+                        lineNumber: 95,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         children: title
                     }, void 0, false, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 33,
+                        lineNumber: 96,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 31,
+                lineNumber: 94,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28709,24 +28873,25 @@ const Home = ({ name , title  })=>{
                         height: "3rem",
                         width: "3rem"
                     },
-                    alt: imageAltText
+                    alt: images[idx].alt
                 }, void 0, false, {
                     fileName: "src/Components/Home.jsx",
-                    lineNumber: 36,
+                    lineNumber: 99,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 35,
+                lineNumber: 98,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Home.jsx",
-        lineNumber: 29,
+        lineNumber: 63,
         columnNumber: 5
     }, undefined);
 };
+_s(Home, "8Pbhn/72WE9iulvqMPyZsT1GRAw=");
 _c = Home;
 Home.defaultProps = {
     name: "",
@@ -28745,11 +28910,14 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../images/down-arrow.svg":"b5nCi","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/first-pic.jpg":"b2kbk"}],"b5nCi":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../images/down-arrow.svg":"b5nCi","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/first-pic.jpg":"b2kbk","../images/fourth-pic.jpg":"gm30w"}],"b5nCi":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "down-arrow.1037091f.svg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"b2kbk":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "first-pic.029878ca.jpg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"gm30w":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "fourth-pic.5f372e5a.jpg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lCaEt":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ed0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -28923,11 +29091,11 @@ $RefreshReg$(_c, "Portfolio");
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/third-pic.jpg":"36qUX"}],"36qUX":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "third-pic.55963628.jpg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"lW6qc":[function() {},{}],"6QZcy":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8bef = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"./helpers/bundle-url":"lgJ39"}],"lW6qc":[function() {},{}],"3hnAC":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1b7c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8bef.prelude(module);
+$parcel$ReactRefreshHelpers$1b7c.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -28935,29 +29103,77 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-const Education = ()=>{
+const SangTao = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-        className: "light",
-        id: "education",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-            children: "Education"
-        }, void 0, false, {
-            fileName: "src/Components/Education.jsx",
-            lineNumber: 6,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/Components/Education.jsx",
+        id: "sangtao",
+        style: {
+            padding: "2rem",
+            backgroundColor: "#f9f9f9"
+        },
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "S\xe1ng tạo"
+            }, void 0, false, {
+                fileName: "src/Components/SangTao.jsx",
+                lineNumber: 6,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "Kh\xe1m ph\xe1 những dự \xe1n v\xe0 s\xe1ng tạo độc đ\xe1o của t\xf4i:"
+            }, void 0, false, {
+                fileName: "src/Components/SangTao.jsx",
+                lineNumber: 7,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: "Hệ thống điều khiển nh\xe0 th\xf4ng minh điều khiển bằng chatbot"
+                    }, void 0, false, {
+                        fileName: "src/Components/SangTao.jsx",
+                        lineNumber: 9,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: "Chatbot nh\xe1i giọng n\xf3i"
+                    }, void 0, false, {
+                        fileName: "src/Components/SangTao.jsx",
+                        lineNumber: 10,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: "Điều khiển laptop bằng cử chỉ qua camera"
+                    }, void 0, false, {
+                        fileName: "src/Components/SangTao.jsx",
+                        lineNumber: 11,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: "V\xe0 nhiều dự \xe1n th\xfa vị kh\xe1c..."
+                    }, void 0, false, {
+                        fileName: "src/Components/SangTao.jsx",
+                        lineNumber: 12,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/Components/SangTao.jsx",
+                lineNumber: 8,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/Components/SangTao.jsx",
         lineNumber: 5,
-        columnNumber: 9
+        columnNumber: 5
     }, undefined);
 };
-_c = Education;
-exports.default = Education;
+_c = SangTao;
+exports.default = SangTao;
 var _c;
-$RefreshReg$(_c, "Education");
+$RefreshReg$(_c, "SangTao");
 
-  $parcel$ReactRefreshHelpers$8bef.postlude(module);
+  $parcel$ReactRefreshHelpers$1b7c.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;

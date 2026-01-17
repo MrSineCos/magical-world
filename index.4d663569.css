@@ -122,4 +122,25 @@ img.socialIcon {
   width: 30px;
 }
 
+#sangtao {
+  background-color: #f9f9f9;
+  padding: 2rem;
+}
+
+#sangtao h2 {
+  color: #4e567e;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+#sangtao ul {
+  padding-left: 2rem;
+  list-style-type: disc;
+}
+
+#sangtao li {
+  margin-bottom: .5rem;
+  font-size: 1.1rem;
+}
+
 /*# sourceMappingURL=index.4d663569.css.map */
