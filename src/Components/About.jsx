@@ -6,37 +6,41 @@
 
 import React from "react";
 
-/**
- * About background image
- *
- * Below is a sample image. Upload the image of your choice into the "images"
- * directory and import here for use. Then, set imageAltText to string that 
- * represents what you see in that image.
- *
- * Need an image? Check out https://unsplash.com to download a image you
- * freely use on your site.
- */
-import image from "../images/motion-background.jpg";
+import Reveal from "./Reveal";
+import ThemedBackground from "./ThemedBackground";
 
-const imageAltText = "purple and blue abstract background";
+/**
+ * About background images
+ *
+ * The background follows the color mode: a day picture in light mode and
+ * a night picture in dark mode, crossfading when the theme changes.
+ */
+import dayImage from "../images/fifth-pic.png";
+import nightImage from "../images/second-pic.jpg";
+
+const dayImageAltText = "a medieval town market street decorated with banners on a sunny day";
+const nightImageAltText = "a scenic view of a street at night during the festive season";
 
 /**
  * Sort description that expands on your title on the Home component.
  */
 const description =
-  "I'm a UI/UX student studying at Barnett Technical University. I enjoy creating unique and simplistic user interfaces in creative ways.";
+  "I'm a Embedded programming student studying at Ho Chi Minh University of Technology. I enjoy learning about microcontrollers and developing embedded systems, making devices smarter and more efficient.";
 
 /**
  * List of some of skills or technologies you work on, are learning,
  * passionate about, or enjoy,
  */
 const skillsList = [
-  "Web design",
-  "User experience",
-  "Inclusive design",
-  "Focus group testing",
-  "Mobile user interfaces",
-  "Graphic design",
+  "Embedded C",
+  "C++",
+  "MicroPython",
+  "Arduino",
+  "ESP32/ESP8266",
+  "STM32",
+  "IoT Development",
+  "PCB Design",
+  "Git & GitHub",
 ];
 
 /**
@@ -45,25 +49,23 @@ const skillsList = [
  * about you on a professional level.
  */
 const detailOrQuote =
-  "I am passionate about solving problems in new creative ways to drive innovation. By leveraging my UI/UX experience I continually look for new and better ways to make tech accessible by all.";
+  "I am passionate about creating innovative embedded systems that enhance everyday life. I thrive in collaborative environments where I can contribute my skills and learn from others. As Albert Einstein once said, 'Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces the entire world, stimulating progress, giving birth to evolution.'";
 
 const About = () => {
   return (
     <section className="padding" id="about">
-      <img className="background" src={image} alt={imageAltText} />
-      <div
-        style={{
-          backgroundColor: "white",
-          width: "50%",
-          padding: "4rem",
-          margin: "3rem auto",
-          textAlign: "center",
-        }}
-      >
-        <h2>About Myself</h2>
+      <ThemedBackground
+        dayImage={dayImage}
+        dayAlt={dayImageAltText}
+        nightImage={nightImage}
+        nightAlt={nightImageAltText}
+      />
+      <Reveal className="glass-card">
+        <h2 className="section-title">About Myself</h2>
         <p className="large">{description}</p>
         <hr />
         <ul
+          className="skills-list"
           style={{
             textAlign: "left",
             columns: 2,
@@ -78,7 +80,7 @@ const About = () => {
         </ul>
         <hr />
         <p style={{ padding: "1rem 3rem 0" }}>{detailOrQuote}</p>
-      </div>
+      </Reveal>
     </section>
   );
 };

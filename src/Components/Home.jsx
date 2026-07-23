@@ -9,31 +9,44 @@ import React from "react";
 import arrowSvg from "../images/down-arrow.svg";
 import PropTypes from "prop-types";
 
-/**
- * Home background image
- *
- * Below is a sample image. Upload the image of your choice into the "images"
- * directory and import here for use. Then, set imageAltText to string that 
- * represents what you see in that image.
- *
- *
- * Need an image? Check out https://unsplash.com to download a photo you
- * freely use on your site.
- */
-import image from "../images/woman-with-tablet.jpg";
+import Sparkles from "./Sparkles";
+import ThemedBackground from "./ThemedBackground";
 
-const imageAltText = "Adult female in office setting leaning against a glass wall while holding a platinum Microsoft Surface Pro 7 in tablet mode preparing to write with Microsoft Surface Pen";
+/**
+ * Home background images
+ *
+ * The background follows the color mode: a day picture in light mode and
+ * a night picture in dark mode, crossfading when the theme changes.
+ */
+import dayImage from "../images/first-pic.jpg";
+import nightImage from "../images/fourth-pic.jpg";
+
+const dayImageAltText = "a scenic view of a coastal town and castle on a sunny day";
+const nightImageAltText = "a scenic view of a harbor and town at night";
 
 const Home = ({ name, title }) => {
   return (
-    <section id="home" className="min-height">
-      <img className="background" src={image} alt="" />
-      <div style={{ position: "absolute", top: "5rem", left: "2rem", width: "17rem" }}>
-        <h1>{name}</h1>
-        <h2>{title}</h2>
+    <section id="home" className="min-height" style={{ position: "relative", overflow: "hidden" }}>
+      <ThemedBackground
+        dayImage={dayImage}
+        dayAlt={dayImageAltText}
+        nightImage={nightImage}
+        nightAlt={nightImageAltText}
+      />
+      <Sparkles />
+      <div style={{ position: "absolute", top: "5rem", left: "2rem", width: "19rem", zIndex: 2 }}>
+        <h1 className="hero-name">{name}</h1>
+        <h2 className="hero-title">{title}</h2>
       </div>
       <div style={{ position: "absolute", bottom: "3rem", left: "50%" }}>
-        <img src={arrowSvg} style={{ height: "3rem", width: "3rem" }} alt={imageAltText} />
+        <a href="#about" aria-label="Scroll to About section">
+          <img
+            src={arrowSvg}
+            className="down-arrow"
+            style={{ height: "3rem", width: "3rem" }}
+            alt="down arrow"
+          />
+        </a>
       </div>
     </section>
   );

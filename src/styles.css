@@ -4,7 +4,71 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;400;600;800&display=swap");
 
-html,
+/* Theme variables: light (day) is the default, dark (night) overrides below */
+:root {
+  --bg: #ffffff;
+  --text: #1a1a2e;
+  --accent: #4e567e;
+  --accent-soft: #e6f0fa;
+  --accent-glow: rgba(78, 86, 126, 0.35);
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(255, 255, 255, 0.6);
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --box-bg: rgba(255, 255, 255, 0.6);
+  --box-border: #cccccc;
+  --section-alt-bg: #f9f9f9;
+  --footer-bg: #4e567e;
+  --sparkle-color: #ffd76a;
+  /* Contrasting halo behind hero text so it stays legible over the photo */
+  --hero-halo: rgba(255, 255, 255, 0.85);
+  /* Book / parchment */
+  --page-bg: #fbf5e6;
+  --page-bg-2: #f1e6cc;
+  --page-text: #4a3f2e;
+  --page-line: rgba(120, 96, 54, 0.18);
+  --book-cover: linear-gradient(135deg, #5b4a8a, #3c3560);
+  --book-shadow: rgba(60, 45, 30, 0.35);
+  /* Legibility veil laid over the forest backdrop photo */
+  --portfolio-veil: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0.14)
+  );
+}
+
+[data-theme="dark"] {
+  --bg: #0f1220;
+  --text: #e8e6f0;
+  --accent: #9aa8ff;
+  --accent-soft: rgba(154, 168, 255, 0.12);
+  --accent-glow: rgba(154, 168, 255, 0.45);
+  --card-bg: rgba(18, 22, 42, 0.72);
+  --card-border: rgba(154, 168, 255, 0.25);
+  --header-bg: rgba(15, 18, 32, 0.85);
+  --box-bg: rgba(24, 28, 52, 0.6);
+  --box-border: #3a3f5c;
+  --section-alt-bg: #14182d;
+  --footer-bg: #1c2038;
+  --sparkle-color: #cfd8ff;
+  --hero-halo: rgba(6, 8, 20, 0.8);
+  /* Book / parchment (dark) */
+  --page-bg: #2b2743;
+  --page-bg-2: #221e38;
+  --page-text: #e8e6f0;
+  --page-line: rgba(154, 168, 255, 0.16);
+  --book-cover: linear-gradient(135deg, #2a2450, #17142c);
+  --book-shadow: rgba(0, 0, 0, 0.55);
+  /* Light veil only — the night backdrop is already dark; keep fireflies visible */
+  --portfolio-veil: linear-gradient(
+    180deg,
+    rgba(9, 14, 26, 0.32),
+    rgba(9, 14, 26, 0.42)
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Montserrat", sans-serif;
   height: 100%;
@@ -12,6 +76,9 @@ body {
   overflow-x: hidden;
   padding: 0;
   width: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
 
 div#main {
@@ -45,11 +112,32 @@ section img.background {
   z-index: -1;
 }
 
+/*
+ * Soften the seam between adjacent background images: fade each image out
+ * into the page background color at its edges so sections don't look glued
+ * together. The revealed body background follows the theme transition.
+ */
+#home img.background {
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+#about img.background {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 14%,
+    black 86%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
+}
+
 h1 {
   font-family: "Cormorant Garamond", serif;
   font-size: 7rem;
   font-weight: 400;
-  line-height: 0.8;
+  line-height: 1.3;
   margin: 0;
 }
 
@@ -66,11 +154,49 @@ h3 {
   margin: 0;
 }
 
+/* Impressive, shared heading used at the top of each section */
+.section-title {
+  position: relative;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.6rem, 5vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.015em;
+  text-align: center;
+  color: var(--accent);
+  margin: 0 auto 1.75rem;
+  padding-bottom: 0.7rem;
+  text-shadow: 0 2px 18px var(--accent-glow);
+}
+
+/* A glowing flourish with a centred diamond under the title */
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: clamp(90px, 12vw, 150px);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.section-title::before {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  bottom: -0.62rem;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
 p {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 0;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 p.large {
@@ -90,36 +216,847 @@ li {
 }
 
 li::marker {
-  color: #4e567e;
+  color: var(--accent);
 }
 
 a {
-  color: black;
+  color: var(--text);
   text-decoration: none;
 }
 
 a:hover {
-  color: #4e567e;
+  color: var(--accent);
 }
 
-.container {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 330px 300px;
-  margin: 20px auto;
+/* ---------- Magical reveal-on-scroll ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  filter: blur(8px);
+  transition: opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease;
 }
 
-.container .box {
-  border-radius: 10px;
-  border: 1px solid rgb(204, 204, 204);
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* ---------- Header & navigation ---------- */
+
+.site-header {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: var(--header-bg);
+  padding: 1rem;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color 0.8s ease;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--text);
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  position: relative;
+  transition: color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.3s;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+/* ---------- Theme toggle ---------- */
+
+.theme-toggle {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 0.25rem;
+}
+
+.theme-toggle button {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  color: var(--text);
+  transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.theme-toggle button:hover {
+  transform: scale(1.12);
+}
+
+.theme-toggle button.active {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.theme-toggle-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ---------- Home / hero ---------- */
+
+.hero-name {
+  color: var(--text);
+  font-weight: 600;
+  animation: name-glow 4s ease-in-out infinite;
+}
+
+@keyframes name-glow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 1px var(--hero-halo),
+      0 2px 12px var(--hero-halo),
+      0 2px 10px rgba(0, 0, 0, 0.12);
+  }
+  50% {
+    text-shadow:
+      0 0 1px var(--hero-halo),
+      0 2px 12px var(--hero-halo),
+      0 4px 30px var(--accent-glow);
+  }
+}
+
+.hero-title {
+  margin-top: 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 1px var(--hero-halo),
+    0 1px 10px var(--hero-halo),
+    0 2px 16px var(--hero-halo);
+}
+
+.hero-title::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-bottom: 0.9rem;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.down-arrow {
+  animation: float 2.5s ease-in-out infinite;
+  transition: filter 0.3s;
+}
+
+.down-arrow:hover {
+  filter: drop-shadow(0 0 10px var(--accent-glow));
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ---------- Sparkles ---------- */
+
+.sparkles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--sparkle-color);
+  text-shadow: 0 0 8px currentColor;
+  opacity: 0;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4) rotate(0deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+/* ---------- Hover glitter particles ---------- */
+
+.hover-sparkles-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.hover-sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor, 0 0 14px currentColor;
+  transform: translate(-50%, -50%);
+  animation: sparkle-burst 0.8s ease-out forwards;
+}
+
+.hover-sparkle.star {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  line-height: 1;
+  text-shadow: 0 0 6px currentColor, 0 0 14px currentColor;
+}
+
+@keyframes sparkle-burst {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2) rotate(120deg);
+  }
+}
+
+/* ---------- Ambient effects (site-wide) ---------- */
+
+.ambient-effects {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Drifting, blinking fireflies in dark mode */
+.fireflies-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+[data-theme="dark"] .fireflies-layer {
+  opacity: 1;
+}
+
+.firefly {
+  position: absolute;
+  border-radius: 50%;
+  background: #d9f27a;
+  box-shadow: 0 0 6px 2px rgba(217, 242, 122, 0.85), 0 0 16px 5px rgba(217, 242, 122, 0.45);
+  animation-name: firefly-drift, firefly-blink;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+}
+
+@keyframes firefly-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(var(--drift-x), calc(var(--drift-y) * 0.4));
+  }
+  50% {
+    transform: translate(calc(var(--drift-x) * 0.3), var(--drift-y));
+  }
+  75% {
+    transform: translate(calc(var(--drift-x) * -0.6), calc(var(--drift-y) * 0.5));
+  }
+}
+
+@keyframes firefly-blink {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .firefly {
+    animation: none;
+  }
+}
+
+/* ---------- About / glass card ---------- */
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  width: 50%;
+  padding: 4rem;
+  margin: 3rem auto;
+  text-align: center;
+  border-radius: 18px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.4s ease, background 0.8s ease, opacity 0.9s ease, transform 0.9s ease,
+    filter 0.9s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 8px 40px var(--accent-glow);
+}
+
+.skills-list li {
+  cursor: default;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.skills-list li:hover {
+  transform: translateX(6px) scale(1.05);
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* ---------- Portfolio ---------- */
+
+/* ---------- Portfolio book ---------- */
+
+/* Forest backdrop photo + section stacking context */
+#portfolio {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.portfolio-bg__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.8s ease;
+}
+
+/* Veil for text legibility + soft fade into neighbouring sections */
+.portfolio-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, var(--bg) 0%, transparent 14%, transparent 86%, var(--bg) 100%),
+    var(--portfolio-veil);
+}
+
+/* Soft glow so the book sits in a bright clearing */
+.book-stage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 920px;
+  height: 660px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 250, 235, 0.55) 0%,
+    rgba(255, 250, 235, 0.25) 40%,
+    transparent 72%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+#portfolio h2,
+.book-stage {
+  position: relative;
+  z-index: 1;
+}
+
+.book-stage {
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem 1rem 1.5rem;
+}
+
+/* Stationary hover target. Because the book only ever moves with a transform
+   (translateX), its layout box — and therefore this wrapper — stays put, so the
+   pointer never falls "off" the book as it slides open or shut. The perspective
+   lives here so the book (its direct child) still renders in 3D. */
+.book-hit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 2200px;
+}
+
+.book {
+  --page-w: 380px;
+  --page-h: 520px;
+  position: relative;
+  display: flex;
+  transform-style: preserve-3d;
+  transform: rotateX(4deg);
+  filter: drop-shadow(0 30px 45px var(--book-shadow));
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Closed / resting: the cover is folded over page one, so the book is shifted
+   half a page left to keep the single closed panel centred in the clearing. */
+.book--closed {
+  transform: rotateX(4deg) translateX(calc(var(--page-w) / -2));
+}
+
+/* While the pages riffle shut they turn faster than during normal reading. */
+.book--closing .leaf {
+  transition-duration: 0.45s;
+}
+
+.book__side {
+  width: var(--page-w);
+  height: var(--page-h);
+  position: relative;
+  /* include the cover's padding in the page size so it matches the right pages */
+  box-sizing: border-box;
+}
+
+.book__cover-inner {
+  box-sizing: border-box;
+}
+
+/* Left page — decorative cover. It is a flap hinged at the spine (its right
+   edge) so it can swing over the pages to close the book. */
+.book__cover {
+  transform-style: preserve-3d;
+  transform-origin: right center;
+  /* While open the cover lies at the BOTTOM of the left-hand pile, a couple of
+     pixels behind the page stack (-2px), so the backs of turned leaves — which
+     carry the project banners — physically land on top of it. */
+  transform: rotateY(0deg) translateZ(-4px);
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 0;
+}
+
+/* Fold the cover over onto page one when the book is closed: it swings back to
+   the front so it rests on top of the closed page stack. */
+.book--closed .book__cover {
+  transform: rotateY(-180deg) translateZ(0);
+  z-index: 40;
+}
+
+/* The two faces of the cover: the front is seen on the left while open, the
+   back lands face-up over page one while closed. Both carry the same artwork. */
+.book__cover-face {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  background: var(--book-cover);
+  border-radius: 10px 4px 4px 10px;
+  padding: 14px;
+  box-shadow: inset -14px 0 24px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* The inner face is a plain paper page (matching the content leaves) that
+   holds the first project's illustration. */
+.book__cover-face--front {
+  padding: 0;
+  background: linear-gradient(120deg, var(--page-bg), var(--page-bg-2));
+  box-shadow: inset -14px 0 24px -14px rgba(0, 0, 0, 0.35);
+}
+
+.book__cover-face--back {
+  transform: rotateY(180deg);
+  border-radius: 4px 10px 10px 4px;
+  box-shadow: inset 14px 0 24px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Illustration pages on the left of each spread: the banner is printed on the
+   paper itself (the back of the turning leaf), so it moves with the page. */
+.page-illustration {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.75rem;
+  box-sizing: border-box;
+}
+
+.page-illustration img {
+  width: 100%;
+  max-height: 75%;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.book__cover-inner {
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 24px 16px;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 1.25rem;
   text-align: center;
 }
+
+.book__cover-img {
+  width: 100%;
+  height: 55%;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+}
+
+.book__cover-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.book__cover-hint {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+/* Center spine */
+.book__spine {
+  width: 12px;
+  height: var(--page-h);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.08) 40%,
+    rgba(0, 0, 0, 0.08) 60%,
+    rgba(0, 0, 0, 0.35)
+  );
+  z-index: 50;
+  transition: opacity 0.6s ease;
+}
+
+/* The spine is hidden while the book is closed, since the folded cover
+   covers it. */
+.book--closed .book__spine {
+  opacity: 0;
+}
+
+/* Right page — stack of turnable leaves. Nudged a hair back so the cover
+   folds cleanly on top of it when the book closes. */
+.book__pages {
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  transform: translateZ(-2px);
+}
+
+.leaf {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.leaf--turned {
+  transform: rotateY(-180deg);
+}
+
+.leaf__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 4px 10px 10px 4px;
+  background: linear-gradient(120deg, var(--page-bg), var(--page-bg-2));
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+
+/* faint ruled-paper lines */
+.leaf__front {
+  box-shadow: inset 14px 0 24px -14px rgba(0, 0, 0, 0.35);
+  background-image: repeating-linear-gradient(
+      var(--page-line) 0 1px,
+      transparent 1px 28px
+    ),
+    linear-gradient(120deg, var(--page-bg), var(--page-bg-2));
+}
+
+.leaf__back {
+  transform: rotateY(180deg);
+  border-radius: 10px 4px 4px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset -14px 0 24px -14px rgba(0, 0, 0, 0.35);
+}
+
+.leaf__ornament {
+  font-size: 2rem;
+  color: var(--page-line);
+}
+
+.leaf__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 2.5rem 2rem 2rem;
+  text-align: center;
+  color: var(--page-text);
+}
+
+.leaf__page-no {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+}
+
+.leaf__title-link {
+  text-decoration: none;
+}
+
+.leaf__title {
+  color: var(--page-text);
+  font-size: 1.45rem;
+  line-height: 1.3;
+  transition: color 0.25s ease;
+}
+
+.leaf__title-link:hover .leaf__title {
+  color: var(--accent);
+}
+
+.leaf__desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.leaf__more {
+  align-self: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.leaf__more:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Bookmark tabs on the right edge */
+.bookmarks {
+  position: absolute;
+  top: 40px;
+  left: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  z-index: 60;
+}
+
+.bookmark {
+  --hue: calc(var(--bm) * 42deg);
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 0.85rem 0.5rem 1.15rem;
+  border-radius: 0 6px 6px 0;
+  background: hsl(calc(250deg + var(--hue)) 45% 55%);
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.28);
+  transform: translateX(-6px);
+  transition: transform 0.35s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%);
+  white-space: nowrap;
+}
+
+.bookmark:hover,
+.bookmark--active {
+  transform: translateX(10px);
+  filter: brightness(1.1);
+  box-shadow: 4px 5px 14px rgba(0, 0, 0, 0.35);
+}
+
+.bookmark:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .book {
+    --page-w: 44vw;
+    --page-h: 62vw;
+    transform: none;
+  }
+  .book--closed {
+    transform: translateX(calc(var(--page-w) / -2));
+  }
+  .book__cover-title {
+    font-size: 1.6rem;
+  }
+  .leaf__content {
+    padding: 1.5rem 1rem;
+    gap: 0.6rem;
+  }
+  .leaf__title {
+    font-size: 1.05rem;
+  }
+  .leaf__desc {
+    font-size: 0.8rem;
+  }
+  .bookmark {
+    font-size: 0.6rem;
+    padding: 0.4rem 0.5rem 0.4rem 0.8rem;
+  }
+}
+
+/* ---------- Footer ---------- */
 
 img.socialIcon {
   height: 30px;
   width: 30px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+a:hover img.socialIcon {
+  transform: translateY(-4px) scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+/* ---------- Sáng tạo section ---------- */
+
+#sangtao {
+  padding: 2rem;
+  background-color: var(--section-alt-bg);
+  transition: background-color 0.8s ease;
+}
+
+#sangtao h2 {
+  margin-bottom: 1.5rem;
+}
+
+#sangtao ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+}
+
+#sangtao li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+}
+
+#sangtao li:hover {
+  transform: translateX(8px);
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* ---------- Accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

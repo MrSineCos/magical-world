@@ -7,10 +7,14 @@
 import React from "react";
 
 import About from "./Components/About";
+import AmbientEffects from "./Components/AmbientEffects";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
+import HoverSparkles from "./Components/HoverSparkles";
 import Home from "./Components/Home";
 import Portfolio from "./Components/Portfolio";
+import SangTao from "./Components/SangTao";
+import { ThemeProvider } from "./ThemeContext";
 
 import "./styles.css";
 
@@ -24,29 +28,32 @@ import "./styles.css";
  * If you don't have one of the social sites listed, leave it as an empty string.
  */
 const siteProps = {
-  name: "Alexandrie Grenier",
-  title: "Web Designer & Content Creator",
-  email: "alex@example.com",
-  gitHub: "microsoft",
-  instagram: "microsoft",
-  linkedIn: "satyanadella",
-  medium: "",
-  twitter: "microsoft",
-  youTube: "Code",
+  name: "Nguyễn Công Vũ",
+  title: "Creator and Developer",
+  email: "sinecoswifi@gmail.com",
+  gitHub: "https://github.com/MrSineCos",
+  linkedIn: "https://www.linkedin.com/in/nguy%E1%BB%85n-c%C3%B4ng-v%C5%A9-055579312/",
+  youTube: "WorldofSinecos",
 };
 
-const primaryColor = "#4E567E";
+const primaryColor = "var(--footer-bg)";
 const secondaryColor = "#D2F1E4";
 
 const App = () => {
   return (
-    <div id="main">
-      <Header />
-      <Home name={siteProps.name} title={siteProps.title} />
-      <About />
-      <Portfolio />
-      <Footer {...siteProps} primaryColor={primaryColor} secondaryColor={secondaryColor} />
-    </div>
+    <ThemeProvider>
+      <div id="main">
+        <HoverSparkles />
+        <AmbientEffects />
+        <Header />
+        <Home name={siteProps.name} title={siteProps.title} />
+        <About />
+        {/* <Education /> */}
+        <Portfolio />
+        <SangTao /> {/* Added 'Sáng tạo' section */}
+        <Footer {...siteProps} primaryColor={primaryColor} secondaryColor={secondaryColor} />
+      </div>
+    </ThemeProvider>
   );
 };
 

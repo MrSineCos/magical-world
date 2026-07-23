@@ -6,26 +6,29 @@
  */
 import React from "react";
 
+import ThemeToggle from "./ThemeToggle";
+
+const navLinks = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#education", label: "Education" },
+  { href: "#portfolio", label: "Portfolio" },
+  { href: "#footer", label: "Contact" },
+  { href: "#sangtao", label: "Creations" }, // Added new section
+];
+
 const Header = () => {
   return (
-    <div
-      style={{
-        position: "fixed",
-        display: "flex",
-        justifyContent: "center",
-        gap: "2rem",
-        background: "rgba(255,255,255,0.75)",
-        padding: "1rem",
-        top: 0,
-        width: "100%",
-        zIndex: 10,
-      }}
-    >
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#footer">Contact</a>
-    </div>
+    <nav className="site-header">
+      <div className="nav-links">
+        {navLinks.map((link) => (
+          <a key={link.href} href={link.href} className="nav-link">
+            {link.label}
+          </a>
+        ))}
+      </div>
+      <ThemeToggle />
+    </nav>
   );
 };
 
